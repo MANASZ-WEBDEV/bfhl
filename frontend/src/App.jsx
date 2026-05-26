@@ -42,14 +42,7 @@ export default function App() {
     }
   }, [moveTicket, addToast]);
 
-  /** Handle invalid drag-and-drop */
-  const handleInvalidDrop = useCallback((from, to) => {
-    addToast(
-      `Cannot move from "${STATUS_LABELS[from]}" to "${STATUS_LABELS[to]}". Only adjacent transitions are allowed.`,
-      'error',
-      5000
-    );
-  }, [addToast]);
+
 
   /** Handle ticket deletion */
   const handleDelete = useCallback(async (ticketId) => {
@@ -108,7 +101,6 @@ export default function App() {
           tickets={tickets}
           onMoveTicket={handleMove}
           onDeleteTicket={handleDelete}
-          onInvalidDrop={handleInvalidDrop}
         />
       )}
 

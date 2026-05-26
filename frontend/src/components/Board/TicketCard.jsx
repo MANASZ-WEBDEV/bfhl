@@ -7,7 +7,7 @@ import './TicketCard.css';
  * Displays subject, priority badge, age, SLA breach indicator,
  * and buttons to move to adjacent statuses.
  */
-export default function TicketCard({ ticket, onMove, onDelete, isDragging }) {
+export default function TicketCard({ ticket, onMove, onDelete }) {
   const transitions = ALLOWED_TRANSITIONS[ticket.status] || [];
 
   const handleMove = async (newStatus) => {
@@ -16,7 +16,7 @@ export default function TicketCard({ ticket, onMove, onDelete, isDragging }) {
 
   return (
     <div
-      className={`ticket-card ${ticket.slaBreached ? 'ticket-card--breached' : ''} ${isDragging ? 'ticket-card--dragging' : ''}`}
+      className={`ticket-card ${ticket.slaBreached ? 'ticket-card--breached' : ''}`}
       id={`ticket-${ticket._id}`}
     >
       {/* Header: Subject + delete */}
