@@ -1,0 +1,106 @@
+.column {
+  flex: 1;
+  min-width: 260px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  animation: fadeIn 0.4s var(--ease-out);
+}
+
+/* Status-specific accent on the header */
+.column--open .column-header        { border-bottom-color: var(--status-open); }
+.column--in_progress .column-header { border-bottom-color: var(--status-in_progress); }
+.column--resolved .column-header    { border-bottom-color: var(--status-resolved); }
+.column--closed .column-header      { border-bottom-color: var(--status-closed); }
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.column-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.column-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.column-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+}
+
+.column-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.column-body {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  min-height: 120px;
+  max-height: calc(100vh - 360px);
+  transition: background var(--transition-fast);
+}
+
+.column-body--drag-over {
+  background: rgba(124, 92, 252, 0.04);
+  border: 1px dashed rgba(124, 92, 252, 0.2);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin: -1px;
+}
+
+/* Empty state */
+.column-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  gap: 6px;
+}
+.column-empty-icon {
+  font-size: 1.6rem;
+  opacity: 0.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .column {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .column {
+    max-width: 100%;
+    min-width: 100%;
+  }
+  .column-body {
+    max-height: 400px;
+  }
+}

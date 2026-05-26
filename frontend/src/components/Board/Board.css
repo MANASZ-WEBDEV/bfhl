@@ -1,0 +1,16 @@
+.board {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 40px;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+/* Smooth horizontal scroll on narrow screens */
+@media (max-width: 768px) {
+  .board {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 16px;
+  }
+}
